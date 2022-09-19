@@ -1,8 +1,10 @@
-import React from 'react'
+import './ContentSection.css';
 
 const ContentSection = () => {
   return (
-    <div>ContentSection</div>
+    <div className='content-section'>
+
+    </div>
   )
 }
 
