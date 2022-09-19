@@ -1,0 +1,36 @@
+.main-header {
+    height: 50vh;
+    background-color: red;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%,
+            rgba(0, 0, 0, 1)) no-repeat border-box, linear-gradient(to top, rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 1)) no-repeat border-box, url(https://picsum.photos/200);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-header--top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.main-header--top_logo {
+    width: 4rem;
+    height: 4rem;
+}
+
+.main-header--top_profile {
+    width: 3rem;
+    height: 3rem;
+    margin-right: .5rem;
+}
+
+.main-header--bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: blueviolet;
+}
