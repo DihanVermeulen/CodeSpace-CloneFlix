@@ -1,9 +1,19 @@
-import React from 'react'
+import './Header.css';
+import shortened_logo from '../../shortened_logo.svg';
+import profile1 from '../../assets/images/profile1.png';
 
 const Header = () => {
-  return (
-    <div>Header</div>
-  )
+    return (
+        <header className='main-header'>
+            <section className='main-header--top'>
+                <img className='main-header--top_logo' src={shortened_logo} alt='logo'></img>
+                <img className='main-header--top_profile' src={profile1} alt='profile'></img>
+            </section>
+            <section className='main-header--bottom'>
+
+            </section>
+        </header>
+    )
 }
 
 export default Header
