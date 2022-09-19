@@ -1,15 +1,12 @@
 import React from 'react';
-import shortened_logo from './shortened_logo.svg';
+import Header from './components/header/Header';
+import ContentSection from './components/Content-Section/ContentSection';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          <img src={shortened_logo} className="app_logo" alt="logo" />
-        </div>
-      </header>
+      
     </div>
   );
 }
