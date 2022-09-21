@@ -10,7 +10,9 @@ const Header = () => {
                 <img className='main-header--top_profile' src={profile1} alt='profile'></img>
             </section>
             <section className='main-header--bottom'>
-
+                <div className='main-header--bottom_content'>
+                    <h2>Movie Header</h2>
+                </div>
             </section>
         </header>
     )
