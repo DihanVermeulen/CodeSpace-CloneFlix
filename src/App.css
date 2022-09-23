@@ -1,5 +1,9 @@
+* {
+  margin: 0;
+}
+
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 body {
@@ -9,7 +13,7 @@ body {
 
 .cloneflix-button_primary {
   cursor: pointer;
-  outline: 0 #fff;
+  border: 0;
   height: 35px;
   background: #fff;
   color: #000;
@@ -23,6 +27,7 @@ body {
   cursor: pointer;
   height: 35px;
   outline: 1px #fff solid;
+  border: 0;
   background: rgba(100, 100, 100, 0.3);
   color: #fff;
   font-size: large;
@@ -32,6 +37,25 @@ body {
 
 .cloneflix-button_secondary:hover {
   background: rgba(100, 100, 100, 0.7);
+}
+
+.cloneflix-button_tertiary {
+  cursor: pointer;
+  padding: 5px;
+  height: 35px;
+  border: 0;
+  background: rgba(100, 100, 100, 0.3);
+  background: linear-gradient(to left, rgba(150, 150, 150, 0.3) 50%, rgba(200, 200, 200, 0.5) 50%) right;
+  background-size: 200%;
+  transition: .5s ease-out;
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
+  margin: .5rem;
+}
+
+.cloneflix-button_tertiary:hover {
+  background-position: left;
 }
 
 @keyframes App-logo-spin {
