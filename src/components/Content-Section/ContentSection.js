@@ -8,7 +8,7 @@ const ContentSection = () => {
     <div className='content-section'>
       <Row title='Coming Soon' value='coming_soon' />
       <Row title='Top Rated' value='top_rated' />
-      <Row title='Comedies' value='comedies' />
+      <Row title='All movies' value='all_movies' />
     </div>
   )
 }
