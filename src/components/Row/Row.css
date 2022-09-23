@@ -43,7 +43,7 @@
 
 
 .movie_list__card:hover>.movie_image {
-    filter: brightness(.5);
+    filter: brightness(.3);
 }
 
 .movie_preview {
