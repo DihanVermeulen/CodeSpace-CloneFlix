@@ -10,24 +10,43 @@ const Row = (props) => {
         async function fetchData() {
             const request = await fetch(requests.fetchAllMovies);
             const { data } = await request.json();
-            if (props.value === "coming_soon") {
-                let comingSoonMovies = data.filter(movie => {
+
+            switch (props.value) {
+                case 'coming_soon': let comingSoonMovies = data.filter(movie => {
                     return movie.is_coming_soon === 1
                 })
-                setMovies(comingSoonMovies);
-            }
-            else if (props.value === "top_rated") {
-                let topRatedMovies = data.filter(movie => {
+                    setMovies(comingSoonMovies);
+                    break;
+                case 'top_rated': let topRatedMovies = data.filter(movie => {
                     return movie.rating >= 5
                 })
-                setMovies(topRatedMovies);
-            }
-            else {
-                let availableMovies = data.filter(movie => {
+                    setMovies(topRatedMovies);
+                    break;
+                default: let availableMovies = data.filter(movie => {
                     return movie.is_coming_soon !== 1
                 })
-                setMovies(availableMovies);
+                    setMovies(availableMovies);
+                    break;
             }
+
+            // if (props.value === "coming_soon") {
+            //     let comingSoonMovies = data.filter(movie => {
+            //         return movie.is_coming_soon === 1
+            //     })
+            //     setMovies(comingSoonMovies);
+            // }
+            // else if (props.value === "top_rated") {
+            //     let topRatedMovies = data.filter(movie => {
+            //         return movie.rating >= 5
+            //     })
+            //     setMovies(topRatedMovies);
+            // }
+            // else {
+            //     let availableMovies = data.filter(movie => {
+            //         return movie.is_coming_soon !== 1
+            //     })
+            //     setMovies(availableMovies);
+            // }
 
             return request
         }
