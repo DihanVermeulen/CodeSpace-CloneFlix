@@ -30,7 +30,10 @@ const Header = () => {
         <header className='main-header'>
             <section className='main-header--top'>
                 <img className='main-header--top_logo' src={logo} alt='logo'></img>
+                <div className='flex align-center'>
                 <img className='main-header--top_profile' src={profile_photo} alt='profile'></img>
+                <div className='arrDown'></div>
+                </div>
             </section>
             <section className='main-header--bottom'>
                 <div className='main-header--bottom_content'>
