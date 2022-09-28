@@ -11,6 +11,21 @@ body {
   color: white;
 }
 
+/* HELPER STYLE */
+.flex {
+  display: flex;
+}
+
+/* HELPER STYLE */
+.justify-center {
+  justify-content: center;
+}
+
+/* HELPER STYLE */
+.align-center {
+  align-items: center;
+}
+
 .cloneflix-button_primary {
   cursor: pointer;
   border: 0;
@@ -36,7 +51,7 @@ body {
 }
 
 .cloneflix-button_secondary:hover {
-  background: rgba(100, 100, 100, 0.7);
+  background: rgba(200, 200, 200, 0.5);
 }
 
 .cloneflix-button_tertiary {
