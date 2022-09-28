@@ -21,7 +21,16 @@
 .main-header--top_profile {
     width: 2.5rem;
     height: 2.5rem;
+}
+
+.arrDown {
     cursor: pointer;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+
+    border-top: 10px solid #777;
 }
 
 .main-header--bottom {
