@@ -1,19 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import requests from '../../requests.js';
 import './Row.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-const Row = ({ movies, title, value }) => {
+const Row = (props) => {
+
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        switch (props.value) {
+            case 'coming_soon':
+                let comingSoonMovies = props.movies.filter(movie => {
+                    return movie.is_coming_soon === 1
+                })
+                setMovies(comingSoonMovies);
+                break;
+            case 'top_rated':
+                let topRatedMovies = props.movies.filter(movie => {
+                    return movie.rating >= 5
+                })
+                setMovies(topRatedMovies);
+                break;
+            default:
+                let availableMovies = props.movies.filter(movie => {
+                    return movie.is_coming_soon !== 1
+                })
+                setMovies(availableMovies);
+                break;
+        }
+
+    }, [props.movies, props.value])
 
     return (
         <div className='row'>
             <div className="content_container-wrapper">
-                <h2>{title}</h2>
+                <h2>{props.title}</h2>
                 <Carousel
                     additionalTransfrom={0}
                     arrows
-                    centerMode={false}   
+                    centerMode={false}
                     className=""
                     containerClass="container" // map is better
                     dotListClass=""
@@ -34,8 +59,8 @@ const Row = ({ movies, title, value }) => {
                                 max: 3000,
                                 min: 1024
                             },
-                            items: 3,
-                            partialVisibilityGutter: 30
+                            items: 4,
+                            partialVisibilityGutter: 5
                         },
                         mobile: {
                             breakpoint: {
@@ -43,7 +68,7 @@ const Row = ({ movies, title, value }) => {
                                 min: 0
                             },
                             items: 2,
-                            partialVisibilityGutter: 5
+                            partialVisibilityGutter: 1
                         },
                         tablet: {
                             breakpoint: {
@@ -67,6 +92,9 @@ const Row = ({ movies, title, value }) => {
                             <div className='movie_preview'>
                                 <div className='movie_preview-heading'>{movie.name}</div>
                                 <p className='movie_preview-description'>{movie.description}</p>
+                                <div className='movie_preview-toolbar '>
+                                    <p>Rating: {movie.rating}</p>
+                                </div>
                             </div>
                         </article>
                     ))}
