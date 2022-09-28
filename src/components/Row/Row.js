@@ -4,52 +4,18 @@ import './Row.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-const Row = (props) => {
-    const [movies, setMovies] = useState([]);
-
-
-
-    useEffect(() => {
-        async function fetchData() {
-            const request = await fetch(requests.fetchAllMovies);
-            const { data } = await request.json();
-
-            switch (props.value) {
-                case 'coming_soon':
-                    let comingSoonMovies = data.filter(movie => {
-                        return movie.is_coming_soon === 1
-                    })
-                    setMovies(comingSoonMovies);
-                    break;
-                case 'top_rated':
-                    let topRatedMovies = data.filter(movie => {
-                        return movie.rating >= 5
-                    })
-                    setMovies(topRatedMovies);
-                    break;
-                default:
-                    let availableMovies = data.filter(movie => {
-                        return movie.is_coming_soon !== 1
-                    })
-                    setMovies(availableMovies);
-                    break;
-            }
-
-            return request
-        }
-        fetchData();
-    }, [movies, props.value]);
+const Row = ({ movies, title, value }) => {
 
     return (
         <div className='row'>
             <div className="content_container-wrapper">
-                <h2>{props.title}</h2>
+                <h2>{title}</h2>
                 <Carousel
                     additionalTransfrom={0}
                     arrows
-                    centerMode={false}
+                    centerMode={false}   
                     className=""
-                    containerClass="container"
+                    containerClass="container" // map is better
                     dotListClass=""
                     draggable
                     focusOnSelect
