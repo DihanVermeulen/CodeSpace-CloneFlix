@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import requests from '../../requests.js';
-import arrow from '../../assets/images/arrow.svg';
 import './Row.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -98,7 +97,7 @@ const Row = (props) => {
                     swipeable >
                     {movies.map((movie, key) => (
                         <article key={key} className='movie_list__card'>
-                            <img className='movie_image' src={movie.image + '?random=2'} alt='movie' />
+                            <img className='movie_image' src={movie.image} alt='movie' />
                             <div className='movie_preview'>
                                 <div className='movie_preview-heading'>{movie.name}</div>
                                 <p className='movie_preview-description'>{movie.description}</p>
