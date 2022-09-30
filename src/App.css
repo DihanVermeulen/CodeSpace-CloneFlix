@@ -9,6 +9,7 @@
 body {
   background-color: #000;
   color: white;
+  overflow-x: hidden;
 }
 
 /* HELPER STYLE */
