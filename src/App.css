@@ -12,26 +12,6 @@ body {
   overflow-x: hidden;
 }
 
-/* HELPER STYLE */
-.flex {
-  display: flex;
-}
-
-/* HELPER STYLE */
-.justify-center {
-  justify-content: center;
-}
-
-/* HELPER STYLE */
-.align-center {
-  align-items: center;
-}
-
-/* HELPER STYLE */
-.flex-column {
-  flex-direction: column;
-}
-
 .cloneflix-button_primary {
   cursor: pointer;
   border: 0;

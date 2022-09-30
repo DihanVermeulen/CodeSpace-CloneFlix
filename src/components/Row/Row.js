@@ -79,7 +79,6 @@ const Row = (props) => {
                     }}
                     rewind={false}
                     rewindWithAnimation={false}
-                    rtl
                     shouldResetAutoplay
                     sliderClass=""
                     slidesToSlide={2}
