@@ -10,7 +10,7 @@ const ContentSection = () => {
   useEffect(() => {
     async function fetchData() {
       const request = await fetch(requests.fetchAllMovies);
-      const { data } = await request.json();  //1:33
+      const { data } = await request.json();
       setMovies(data);
 
       return request
