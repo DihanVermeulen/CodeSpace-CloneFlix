@@ -2,7 +2,9 @@ import './Header.css';
 import shortened_logo from '../../assets/images/shortened_logo.svg';
 import longer_logo from '../../assets/images/longer_logo.svg';
 import profile_photo from '../../assets/images/profile_photo.png';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { Dropdown } from '../Dropdown/Dropdown';
+import { DropdownButton } from '../Dropdown/DropdownButton/DropdownButton';
 
 const Header = () => {
     let logo = shortened_logo;
@@ -30,9 +32,13 @@ const Header = () => {
         <header className='main-header'>
             <section className='main-header--top'>
                 <img className='main-header--top_logo' src={logo} alt='logo'></img>
-                <div className='flex align-center'>
-                <img className='main-header--top_profile' src={profile_photo} alt='profile'></img>
-                <div className='arrDown'></div>
+                <div className='flex flex-column'>
+                    <div className='flex align-center'>
+                        <img className='main-header--top_profile' src={profile_photo} alt='profile'></img>
+                        <DropdownButton>
+                            <Dropdown></Dropdown>
+                        </DropdownButton>
+                    </div>
                 </div>
             </section>
             <section className='main-header--bottom'>
