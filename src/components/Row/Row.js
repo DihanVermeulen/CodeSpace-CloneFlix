@@ -38,12 +38,10 @@ const Row = (props) => {
                 <Carousel
                     additionalTransfrom={0}
                     arrows
-                    centerMode={false}
                     className=""
                     containerClass="container" // map is better
                     dotListClass=""
                     draggable
-                    focusOnSelect
                     infinite={false}
                     itemClass=""
                     keyBoardControl
@@ -60,23 +58,23 @@ const Row = (props) => {
                                 min: 1024
                             },
                             items: 4,
-                            partialVisibilityGutter: 5
+                            partialVisibilityGutter: 40
                         },
                         mobile: {
                             breakpoint: {
                                 max: 600,
                                 min: 0
                             },
-                            items: 2,
-                            partialVisibilityGutter: 1
+                            items: 3,
+                            partialVisibilityGutter: 30
                         },
                         tablet: {
                             breakpoint: {
                                 max: 1024,
                                 min: 600
                             },
-                            items: 2,
-                            partialVisibilityGutter: 5
+                            items: 3,
+                            partialVisibilityGutter: 30
                         }
                     }}
                     rewind={false}
