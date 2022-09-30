@@ -10,7 +10,7 @@ const ContentSection = () => {
   useEffect(() => {
     async function fetchData() {
       const request = await fetch(requests.fetchAllMovies);
-      const { data } = await request.json();
+      const { data } = await request.json();  //1:33
       setMovies(data);
 
       return request
@@ -19,7 +19,11 @@ const ContentSection = () => {
   }, []);
 
   if (!movies) {
-    return <div>loading...</div>
+    return <div className='loader'>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   }
   else {
     return <div className='content-section'>
@@ -28,6 +32,8 @@ const ContentSection = () => {
       {movies && <Row title='All movies' value='all_movies' movies={movies} />}
     </div>
   }
+  
+
 }
 
 
