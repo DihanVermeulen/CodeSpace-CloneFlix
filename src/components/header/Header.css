@@ -66,3 +66,9 @@
         height: 2rem;
     }
 }
+
+@media  screen and (min-width:1024px) {
+    .main-header {
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 100%), url(https://picsum.photos/1500/1000);
+    }
+}
