@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ContentSection.css';
-import Row from '../../components/Row/Row';
+import Row from '../Row/Row';
 import requests from '../../requests';
 
 const ContentSection = () => {
@@ -13,7 +13,7 @@ const ContentSection = () => {
       const { data } = await request.json();
       setMovies(data);
 
-      return request
+      return data
     }
     fetchData();
   }, []);
