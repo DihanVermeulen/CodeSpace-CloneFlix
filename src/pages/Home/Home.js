@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 
 export const Home = () => {
   const navigate = useNavigate();
-
   const checkIfSignedIn = async () => {
 
     if (!isSignedIn()) {
