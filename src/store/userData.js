@@ -1,3 +1,10 @@
+// interface UserData {
+//     id: Number,
+//     username: String,
+//     password: String,
+//     email: String
+// }
+
 const initialState = [
     {
         id: 1,
