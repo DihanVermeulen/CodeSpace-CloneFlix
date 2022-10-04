@@ -13,8 +13,6 @@ export const Dropdown = () => {
   // SETS LOCALSTORAGE ITEM TO TRUE WHEN USER SIGNS IN
   const signIn = () => {
     console.log('Log In');
-    localStorage.setItem('SignedIn', true);
-    setsignedIn(true);
   }
 
   // SETS LOCALSTORAGE ITEM TO FALSE WHEN USER SIGNS OUT
@@ -26,7 +24,7 @@ export const Dropdown = () => {
 
   const DropdownItem = (props) => {
     return (
-      <a href='#' className='dropdown-item' onClick={props.function}>
+      <a href={props.link} className='dropdown-item' onClick={props.function}>
         {props.children}
       </a>
     )
@@ -35,8 +33,8 @@ export const Dropdown = () => {
   // BASED ON IF THE USER IS SIGNED IN WHAT BUTTON WILL DISPLAY
   return (
     <div className='dropdown'>
-      {!signedIn && <DropdownItem function={signIn}>Log In</DropdownItem>}
-      {signedIn && <DropdownItem function={signOut}>Log Out</DropdownItem>}
+      {!signedIn && <DropdownItem link='/login' function={signIn}>Log In</DropdownItem>}
+      {signedIn && <DropdownItem link='/login' function={signOut}>Log Out</DropdownItem>}
     </div >
   )
 }
