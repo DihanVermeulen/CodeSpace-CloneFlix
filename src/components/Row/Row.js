@@ -17,7 +17,7 @@ const Row = (props) => {
                 break;
             case 'top_rated':
                 let topRatedMovies = props.movies.filter(movie => {
-                    return movie.rating >= 5
+                    return movie.rating >= 7
                 })
                 setMovies(topRatedMovies);
                 break;
