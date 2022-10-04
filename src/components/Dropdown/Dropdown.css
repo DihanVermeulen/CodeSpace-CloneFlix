@@ -43,4 +43,7 @@ a {
     height: 20px;
     cursor: pointer;
     padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
