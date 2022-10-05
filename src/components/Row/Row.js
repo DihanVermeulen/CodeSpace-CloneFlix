@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Row.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import add_button from '../../assets/buttons/add_button.svg';
+import play_button from '../../assets/buttons/play_button.svg';
 
 const Row = (props) => {
 
@@ -65,7 +67,7 @@ const Row = (props) => {
                                 max: 600,
                                 min: 0
                             },
-                            items: 3,
+                            items: 2,
                             partialVisibilityGutter: 30
                         },
                         tablet: {
@@ -90,6 +92,8 @@ const Row = (props) => {
                                 <div className='movie_preview-heading'>{movie.name}</div>
                                 <p className='movie_preview-description'>{movie.description}</p>
                                 <div className='movie_preview-toolbar '>
+                                    <div ><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
+                                    <div ><img className='movie_preview-toolbar--button' src={play_button} alt='play'></img></div>
                                     <p>Rating: {movie.rating}</p>
                                 </div>
                             </div>
