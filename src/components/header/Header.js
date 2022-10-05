@@ -5,6 +5,8 @@ import profile_photo from '../../assets/images/profile_photo.png';
 import { useEffect } from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { DropdownButton } from '../Dropdown/DropdownButton/DropdownButton';
+import WatchList from '../WatchList/WatchList';
+import { Drawer } from '../WatchList/WatchList';
 
 const Header = () => {
     let logo = shortened_logo;
@@ -49,7 +51,10 @@ const Header = () => {
                         <button className='cloneflix-button_secondary'>+ Watch List</button>
                     </div>
                     <div>
-                        <button className='cloneflix-button_tertiary'>My List</button>
+                        {/* <button className='cloneflix-button_tertiary'>My List</button> */}
+                        <WatchList>
+                            <Drawer />
+                        </WatchList>
                     </div>
                 </div>
             </section>
