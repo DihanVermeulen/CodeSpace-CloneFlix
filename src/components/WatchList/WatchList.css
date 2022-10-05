@@ -3,7 +3,20 @@
     background-color: #000;
     right: 0;
     top: 0;
-    width: 50%;
+    width: 90%;
     height: 100vh;
     z-index: 10000;
+    padding: 10px 10px 10px 50px;
+}
+
+@media screen and (min-width:600px) {
+    #watchlist {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #watchlist {
+        width: 50%;
+    }
 }

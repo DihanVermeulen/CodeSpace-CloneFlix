@@ -60,9 +60,10 @@ h2 {
     align-items: center;
     position: absolute;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     margin: 5px;
     display: none;
+    padding: 5px;
 }
 
 .movie_preview-heading {
@@ -70,14 +71,30 @@ h2 {
 }
 
 .movie_preview-description {
-    font-size: x-small;
+    font-size: small;
     width: 100%;
 }
 
 .movie_preview-toolbar {
+    width: 100%;
+    bottom: 0;
+    margin-top: auto;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 1);
+    margin: 10px 10px 10px 10px;
 }
+
+.movie_preview-toolbar p {
+    margin-left: auto;
+}
+
+.movie_preview-toolbar--button {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    margin-left: 10px;
+} 
 
 .movie_image {
     object-fit: cover;
