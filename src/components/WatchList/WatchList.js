@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import './WatchList.css';
-const WatchList = () => {
+const WatchList = (props) => {
+  const [isOpen, setisOpen] = useState(false)
   return (
-    <aside id='watchlist'>WatchList</aside>
+    <div>
+      <button className='cloneflix-button_tertiary' onClick={() => setisOpen(!isOpen)}>My List</button>
+      {isOpen && props.children}
+    </div>
   )
+}
+
+export const Drawer = () => {
+  return (<aside id='watchlist'>WatchList</aside>)
 }
 
 export default WatchList
