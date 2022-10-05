@@ -12,7 +12,11 @@ const WatchList = (props) => {
 }
 
 export const Drawer = () => {
-  return (<aside id='watchlist'>WatchList</aside>)
+  return (
+    <aside id='watchlist'>
+      <h1>My List</h1>
+    </aside>
+  )
 }
 
 export default WatchList
