@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './WatchList.css';
 const WatchList = (props) => {
-  const [isOpen, setisOpen] = useState(false)
+  const [isOpen, setisOpen] = useState(false);
+
   return (
     <div>
       <button className='cloneflix-button_tertiary' onClick={() => setisOpen(!isOpen)}>My List</button>
