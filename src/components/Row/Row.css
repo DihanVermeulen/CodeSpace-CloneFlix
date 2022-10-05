@@ -35,13 +35,13 @@ h2 {
     align-items: center;
     text-align: center;
     /* width: 100%; */
-    margin: 10px;
+    margin: 10px 10px 50px 10px ;
     height: 200px;
     cursor: pointer;
 }
 
 .movie_list__card:hover {
-    transform: scale(1.06);
+    transform: scale(1.04);
     transition: all .3s ease-in-out;
 }
 
