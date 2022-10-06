@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './WatchList.css';
 const WatchList = (props) => {
   const [isOpen, setisOpen] = useState(false);
 
+  useEffect(() => {
+    document.addEventListener('mousedown', (e) => {
+      if (!e.target.closest('#watchlist') && !e.target.closest('#openWatchList')) {
+        setisOpen(false);
+      }
+    })
+  })
+
   return (
     <div>
-      <button className='cloneflix-button_tertiary' onClick={() => setisOpen(!isOpen)}>My List</button>
+      <button id='openWatchList' className='cloneflix-button_tertiary' onClick={() => setisOpen(!isOpen)}>My List</button>
       {isOpen && props.children}
     </div>
   )
