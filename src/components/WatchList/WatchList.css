@@ -7,6 +7,7 @@
     height: 100vh;
     z-index: 10000;
     padding: 10px 10px 10px 50px;
+    transform-origin: right;
 }
 
 @media screen and (min-width:600px) {
