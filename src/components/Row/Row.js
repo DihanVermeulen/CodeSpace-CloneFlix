@@ -68,7 +68,7 @@ const Row = (props) => {
                                 min: 0
                             },
                             items: 2,
-                            partialVisibilityGutter: 30
+                            partialVisibilityGutter: 20
                         },
                         tablet: {
                             breakpoint: {
@@ -86,13 +86,13 @@ const Row = (props) => {
                     slidesToSlide={2}
                     swipeable >
                     {movies.map((movie, key) => (
-                        <article key={key} className='movie_list__card'>
+                        <article key={key} id={movie.id} className='movie_list__card'>
                             <img className='movie_image' src={movie.image} alt='movie' />
                             <div className='movie_preview'>
                                 <div className='movie_preview-heading'>{movie.name}</div>
                                 <p className='movie_preview-description'>{movie.description}</p>
                                 <div className='movie_preview-toolbar '>
-                                    <div ><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
+                                    <div onClick={(e) => console.log(e.target.parentElement.parentElement.parentElement.parentElement.id)}><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
                                     <div ><img className='movie_preview-toolbar--button' src={play_button} alt='play'></img></div>
                                     <p>Rating: {movie.rating}</p>
                                 </div>
