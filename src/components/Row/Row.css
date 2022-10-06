@@ -35,9 +35,8 @@ h2 {
     align-items: center;
     text-align: center;
     /* width: 100%; */
-    margin: 10px 10px 50px 10px ;
+    margin: 10px 5px 50px 5px ;
     height: 200px;
-    cursor: pointer;
 }
 
 .movie_list__card:hover {
@@ -60,7 +59,7 @@ h2 {
     align-items: center;
     position: absolute;
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     margin: 5px;
     display: none;
     padding: 5px;
@@ -71,12 +70,15 @@ h2 {
 }
 
 .movie_preview-description {
-    font-size: small;
+    font-size: x-small;
     width: 100%;
 }
 
 .movie_preview-toolbar {
-    width: 100%;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    height: 40px;
+    width: 90%;
     bottom: 0;
     margin-top: auto;
     display: flex;
@@ -87,6 +89,7 @@ h2 {
 
 .movie_preview-toolbar p {
     margin-left: auto;
+    margin-right: 10px;
 }
 
 .movie_preview-toolbar--button {
@@ -94,7 +97,12 @@ h2 {
     height: 20px;
     padding: 5px;
     margin-left: 10px;
+    cursor: pointer;
 } 
+
+.movie_preview-toolbar--button:hover {
+    background-color: grey;
+}
 
 .movie_image {
     object-fit: cover;
@@ -142,8 +150,7 @@ h2 {
 
 @media screen and (min-width:600px) {
     .movie_list__card {
-        /* width: 200px; */
-        height: 150px;
+        height: 200px;
     }
 
     .movie_preview-description {
@@ -153,7 +160,6 @@ h2 {
 
 @media screen and (min-width:1024px) {
     .movie_list__card {
-        /* width: 250px; */
         height: 200px;
     }
 }
