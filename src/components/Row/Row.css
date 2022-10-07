@@ -105,7 +105,7 @@ h2 {
 }
 
 .movie_image {
-    object-fit: cover;
+    object-fit: fill;
     width: 100%;
     height: 100%;
 }
@@ -150,7 +150,7 @@ h2 {
 
 @media screen and (min-width:600px) {
     .movie_list__card {
-        height: 200px;
+        height: 230px;
     }
 
     .movie_preview-description {
@@ -160,6 +160,10 @@ h2 {
 
 @media screen and (min-width:1024px) {
     .movie_list__card {
-        height: 200px;
+        height: 250px;
+    }
+
+    .content_container-wrapper {
+        height: 300px;
     }
 }
