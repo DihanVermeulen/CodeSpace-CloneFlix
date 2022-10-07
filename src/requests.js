@@ -1,6 +1,6 @@
 const requests = {
     fetchAllMovies: 'https://project-apis.codespace.co.za/api/movies',
-    fetchSchalkMovies: 'https://luminous-choux-6d3ba0.netlify.app/api.json/',
+    fetchSchalkMovies: 'https://netflix-cs-api.netlify.app/',
 }
 
 export default requests;
