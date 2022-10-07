@@ -41,10 +41,10 @@ const Header = () => {
             let randomNum = Math.floor(Math.random() * topRatedMoviesLength);
             console.log('random number', randomNum);
 
-            // SETS THE MOVIE EQUAL TO THE INDEX OF THE TOP RATED MOVIES
-            let selectedMovie = movies[randomNum];
+            // SETS movieHeader EQUAL TO THE INDEX PROVIDED BY randomNum
+            let selectedMovie = topRatedMovies[randomNum];
+            console.log('Selected Movie: ', selectedMovie);
             setMovieHeader(selectedMovie);
-            console.log('Selected Movie: ', movies[randomNum]);
         }
 
         async function fetchData() {
