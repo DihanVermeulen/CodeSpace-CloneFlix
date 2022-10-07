@@ -14,15 +14,16 @@ const WatchList = (props) => {
   return (
     <div>
       <button id='openWatchList' className='cloneflix-button_tertiary' onClick={() => setisOpen(!isOpen)}>My List</button>
-      {isOpen && props.children}
+      {isOpen && <Drawer><div onClick={() => setisOpen(!isOpen)} className='watchlist-close_button'>X</div></Drawer>}
     </div>
   )
 }
 
-export const Drawer = () => {
+export const Drawer = (props) => {
   return (
     <aside id='watchlist'>
-      <h1>My List</h1>
+      <h1 className='watchlist-header'>My List</h1>
+      {props.children}
     </aside>
   )
 }
