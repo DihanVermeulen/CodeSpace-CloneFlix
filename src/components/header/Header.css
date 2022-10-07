@@ -6,6 +6,10 @@
     margin-bottom: 30px;
 }
 
+.main-header--cover_header {
+    font-size: 2rem;
+}
+
 .main-header--top {
     display: flex;
     align-items: center;
@@ -47,6 +51,7 @@
 
 .main-header--bottom_content {
     display: flex;
+    position: absolute;
     flex-direction: column;
     align-items: flex-start;
     position: absolute;
@@ -62,6 +67,10 @@
     .main-header--bottom {
         align-items: flex-start;
     }  
+
+    .main-header--bottom_content {
+        margin-left: 5%;
+    }
 
     .main-header--top_logo {
         height: 2rem;

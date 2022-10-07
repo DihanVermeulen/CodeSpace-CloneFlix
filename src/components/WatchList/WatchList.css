@@ -1,23 +1,57 @@
 #watchlist {
     position: fixed;
     background-color: #000;
-    right: 0;
     top: 0;
-    width: 90%;
+    left: 0;
+    width: 100%;
     height: 100vh;
     z-index: 10000;
     padding: 10px 10px 10px 10px;
     transform-origin: right;
 }
 
+.watchlist-header {
+    font-size: 2rem;
+}
+
+.watchlist-close_button {
+    top: 0;
+    right: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.watchlist-close_button:hover {
+    border: 2px solid #555;
+}
+
 @media screen and (min-width:600px) {
     #watchlist {
         width: 80%;
+        left: auto;
+        right: 0;
+    }
+
+    .watchlist-close_button {
+        right: 0;
     }
 }
 
 @media screen and (min-width:1024px) {
     #watchlist {
         width: 50%;
+        right: 0;
     }
 }
