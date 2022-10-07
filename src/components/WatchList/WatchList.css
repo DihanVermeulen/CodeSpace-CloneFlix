@@ -6,7 +6,7 @@
     width: 90%;
     height: 100vh;
     z-index: 10000;
-    padding: 10px 10px 10px 50px;
+    padding: 10px 10px 10px 10px;
     transform-origin: right;
 }
 
