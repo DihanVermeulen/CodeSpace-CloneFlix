@@ -10,7 +10,8 @@ import { Drawer } from '../WatchList/WatchList';
 import requests from '../../requests';
 
 const Header = () => {
-    const [movies, setMovies] = useState();
+    const [movies, setMovies] = useState([]);
+    const [movieHeader, setMovieHeader] = useState([]);
     let logo = shortened_logo;
 
     const handleResize = () => {
@@ -23,15 +24,43 @@ const Header = () => {
 
     useEffect(() => {
         window.addEventListener("resize", handleResize);
-        async function fetchData() {
-            const request = await fetch(requests.fetchSchalkMovies);
-            const { data } = await request.json();
-            setMovies(data);
 
-            return data
+        const getMovieCover = (data) => {
+            let movies = data.data;
+            // FILERS MOVIES TO GET TOP RATED MOVIES
+            let topRatedMovies = movies.filter(movie => {
+                console.log('filtering movies...')
+                return movie.rating >= 7
+            })
+
+            // GETS LENGTH OF ALL TOP RATED MOVIES
+            let topRatedMoviesLength = Object.keys(topRatedMovies).length - 1;
+            console.log('Length of all movies', topRatedMoviesLength);
+
+            // SETS A RANDOM NUMBER BETWEEN 1 AND THE AMOUNT OF TOP RATED MOVIES
+            let randomNum = Math.floor(Math.random() * topRatedMoviesLength);
+            console.log('random number', randomNum);
+
+            // SETS THE MOVIE EQUAL TO THE INDEX OF THE TOP RATED MOVIES
+            let selectedMovie = movies[randomNum];
+            setMovieHeader(selectedMovie);
+            console.log('Selected Movie: ', movies[randomNum]);
+        }
+
+        async function fetchData() {
+            await fetch(requests.fetchSchalkMovies, {
+                method: 'GET',
+            }).then((response) => response.json()).then(
+                (responseJSON) => {
+                    setMovies(responseJSON);
+                    getMovieCover(responseJSON)
+                }
+            );
         }
         fetchData();
-    });
+
+        // setMovieCover("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg");
+    }, []);
 
     if (window.innerWidth <= 600) {
         logo = shortened_logo;
@@ -39,9 +68,9 @@ const Header = () => {
     else {
         logo = longer_logo
     }
-
+    // "linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 100%)," + "url(" + { movieCover } + ")"
     return (
-        <header className='main-header'>
+        <header className='main-header' style={{ backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 100%), url(${movieHeader.image})` }}>
             <section className='main-header--top'>
                 <img className='main-header--top_logo' src={logo} alt='logo'></img>
                 <div className='flex flex-column'>
@@ -55,8 +84,8 @@ const Header = () => {
             </section>
             <section className='main-header--bottom'>
                 <div className='main-header--bottom_content'>
-                    <h2>Movie Header</h2>
-                    <div>
+                    <h2>{movieHeader.name}</h2>
+                    <div id={movieHeader.id}>
                         <button className='cloneflix-button_primary'>See trailer</button>
                         <button className='cloneflix-button_secondary'>+ Watch List</button>
                     </div>
