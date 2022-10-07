@@ -9,7 +9,7 @@ const ContentSection = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await fetch(requests.fetchAllMovies);
+      const request = await fetch(requests.fetchSchalkMovies);
       const { data } = await request.json();
       setMovies(data);
 
