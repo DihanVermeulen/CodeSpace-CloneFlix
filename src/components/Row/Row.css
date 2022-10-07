@@ -1,5 +1,5 @@
 .content_container-wrapper {
-    height: 250px;
+    height: 300px;
     margin-bottom: 40px;
 }
 
@@ -36,7 +36,7 @@ h2 {
     text-align: center;
     /* width: 100%; */
     margin: 10px 5px 50px 5px ;
-    height: 200px;
+    height: 250px;
 }
 
 .movie_list__card:hover {
@@ -153,7 +153,7 @@ h2 {
 
 @media screen and (min-width:600px) {
     .movie_list__card {
-        height: 230px;
+        height: 250px;
     }
 
     .movie_preview-description {
