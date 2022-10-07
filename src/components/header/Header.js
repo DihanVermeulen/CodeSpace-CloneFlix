@@ -2,13 +2,15 @@ import './Header.css';
 import shortened_logo from '../../assets/images/shortened_logo.svg';
 import longer_logo from '../../assets/images/longer_logo.svg';
 import profile_photo from '../../assets/images/profile_photo.png';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { DropdownButton } from '../Dropdown/DropdownButton/DropdownButton';
 import WatchList from '../WatchList/WatchList';
 import { Drawer } from '../WatchList/WatchList';
+import requests from '../../requests';
 
 const Header = () => {
+    const [movies, setMovies] = useState();
     let logo = shortened_logo;
 
     const handleResize = () => {
@@ -21,6 +23,14 @@ const Header = () => {
 
     useEffect(() => {
         window.addEventListener("resize", handleResize);
+        async function fetchData() {
+            const request = await fetch(requests.fetchSchalkMovies);
+            const { data } = await request.json();
+            setMovies(data);
+
+            return data
+        }
+        fetchData();
     });
 
     if (window.innerWidth <= 600) {
