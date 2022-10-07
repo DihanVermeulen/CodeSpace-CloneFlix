@@ -84,7 +84,7 @@ const Header = () => {
             </section>
             <section className='main-header--bottom'>
                 <div className='main-header--bottom_content'>
-                    <h2>{movieHeader.name}</h2>
+                    <h2 className='main-header--cover_header'>{movieHeader.name}</h2>
                     <div id={movieHeader.id}>
                         <button className='cloneflix-button_primary'>See trailer</button>
                         <button className='cloneflix-button_secondary'>+ Watch List</button>
