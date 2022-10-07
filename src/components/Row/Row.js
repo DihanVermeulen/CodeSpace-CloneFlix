@@ -59,8 +59,8 @@ const Row = (props) => {
                                 max: 3000,
                                 min: 1024
                             },
-                            items: 4,
-                            partialVisibilityGutter: 40
+                            items: 5,
+                            partialVisibilityGutter: 20
                         },
                         mobile: {
                             breakpoint: {
