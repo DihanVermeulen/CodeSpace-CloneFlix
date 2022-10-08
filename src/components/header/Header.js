@@ -91,9 +91,7 @@ const Header = () => {
                     </div>
                     <div>
                         {/* <button className='cloneflix-button_tertiary'>My List</button> */}
-                        <WatchList>
-                            <Drawer />
-                        </WatchList>
+                        <WatchList class='cloneflix-button_tertiary' />
                     </div>
                 </div>
             </section>
