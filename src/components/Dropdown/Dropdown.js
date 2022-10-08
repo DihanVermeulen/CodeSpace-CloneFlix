@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dropdown.css';
 import isSignedIn from '../../utils/utils'
+import WatchList from '../WatchList/WatchList';
 
 export const Dropdown = () => {
   const [signedIn, setsignedIn] = useState(false);
@@ -35,6 +36,7 @@ export const Dropdown = () => {
     <div className='dropdown'>
       {!signedIn && <DropdownItem link='/login' function={signIn}>Log In</DropdownItem>}
       {signedIn && <DropdownItem link='/login' function={signOut}>Log Out</DropdownItem>}
+      <WatchList class='dropdown-item' />
     </div >
   )
 }
