@@ -10,6 +10,7 @@ const Row = (props) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
+        // CHECKS WHAT KIND OF MOVIES TO DISPLAY AND SETS movies TO THAT VALUE
         switch (props.value) {
             case 'coming_soon':
                 let comingSoonMovies = props.movies.filter(movie => {
@@ -32,6 +33,31 @@ const Row = (props) => {
         }
 
     }, [props.movies, props.value])
+
+    /**
+     * ADDS A MOVIE TO THE WATCH LIST
+     * @param {*} e - PASSED IN EVENT BY BUTTON CLICK
+     */
+    const addMovieToWatchList = (e) => {
+        let allMovies = props.movies;
+        console.log(allMovies)
+        let movieId = e.target.parentElement.parentElement.parentElement.parentElement.id;
+        console.log('movie id: ', movieId);
+        let selectedMovie;
+        allMovies.forEach(movie => {
+            if (movie.id == movieId) {
+                selectedMovie = movie;
+            }
+        });
+        console.log('selected movie: ', selectedMovie);
+        let watchlistMovies = localStorage.getItem('watchlistMovies');
+        console.log('watch list', watchlistMovies);
+        let parsedWatchlistMovies = JSON.parse(watchlistMovies);
+        console.log('parsed watch list', parsedWatchlistMovies);
+        parsedWatchlistMovies.push(selectedMovie);
+        localStorage.setItem('watchlistMovies', JSON.stringify(parsedWatchlistMovies));
+
+    }
 
     return (
         <div className='row'>
@@ -92,8 +118,10 @@ const Row = (props) => {
                                 <div className='movie_preview-heading'>{movie.name}</div>
                                 <p className='movie_preview-description'>{movie.description}</p>
                                 <div className='movie_preview-toolbar '>
-                                    <div onClick={(e) => console.log(e.target.parentElement.parentElement.parentElement.parentElement.id)}><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
-                                    <div ><img className='movie_preview-toolbar--button' src={play_button} alt='play'></img></div>
+                                    <div onClick={addMovieToWatchList}><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
+                                    <div >
+                                        <img className='movie_preview-toolbar--button' src={play_button} alt='play'></img>
+                                    </div>
                                     <p>Rating: {movie.rating}</p>
                                 </div>
                             </div>
