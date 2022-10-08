@@ -13,17 +13,30 @@ const WatchList = (props) => {
 
   return (
     <div>
-      <button id='openWatchList' className='cloneflix-button_tertiary' onClick={() => setisOpen(!isOpen)}>My List</button>
+      <button id='openWatchList' className={props.class} onClick={() => setisOpen(!isOpen)}>My List</button>
       {isOpen && <Drawer><div onClick={() => setisOpen(!isOpen)} className='watchlist-close_button'>X</div></Drawer>}
     </div>
   )
 }
 
 export const Drawer = (props) => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    let watchlistMovies = JSON.parse(localStorage.getItem('watchlistMovies'));
+    console.trace(watchlistMovies);
+    setMovies(watchlistMovies);
+  }, [movies])
+
+  console.log(movies)
+
   return (
     <aside id='watchlist'>
       <h1 className='watchlist-header'>My List</h1>
       {props.children}
+      {movies.map((movie, key) => {
+        return <div key={key}>{movie.id}</div>
+      })}
     </aside>
   )
 }
