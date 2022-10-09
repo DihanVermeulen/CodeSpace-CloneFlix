@@ -7,6 +7,7 @@ import { Dropdown } from '../Dropdown/Dropdown';
 import { DropdownButton } from '../Dropdown/DropdownButton/DropdownButton';
 import WatchList from '../WatchList/WatchList';
 import requests from '../../requests';
+import { getCurrentLoggedInUser } from '../../utils/utils';
 
 const Header = () => {
     const [movies, setMovies] = useState([]);
@@ -57,17 +58,27 @@ const Header = () => {
 
     const addMovieToWatchList = (e) => {
         let allMovies = movies.data;
+        console.log(allMovies)
         let movieId = e.target.parentElement.id;
+        console.log('movie id: ', movieId);
         let selectedMovie;
         allMovies.forEach(movie => {
             if (movie.id == movieId) {
                 selectedMovie = movie;
             }
         });
-        let watchlistMovies = localStorage.getItem('watchlistMovies');
-        let parsedWatchlistMovies = JSON.parse(watchlistMovies);
-        parsedWatchlistMovies.push(selectedMovie);
-        localStorage.setItem('watchlistMovies', JSON.stringify(parsedWatchlistMovies));
+        console.log('selected movie:', selectedMovie)
+        let users = JSON.parse(localStorage.getItem('users'));
+        let loggedInUser = getCurrentLoggedInUser();
+        let watchlistMovies = [];
+        users.map(user => {
+            if (loggedInUser.id == user.id) {
+                watchlistMovies = user.watchlist;
+                user.watchlist.push(selectedMovie);
+                localStorage.setItem('users', JSON.stringify(users));
+                console.log('users: ', users);
+            }
+        });
     }
 
     // CHANGES LOGO ON WINDOW SIZE
