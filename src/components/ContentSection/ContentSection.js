@@ -19,18 +19,18 @@ const ContentSection = () => {
   }, []);
 
   if (!movies) {
-    return <div className='loader'>
+    return <section className='loader'>
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </section>
   }
   else {
-    return <div className='content-section'>
+    return <section className='content-section'>
       {movies && <Row title='Coming Soon' value='coming_soon' movies={movies} />}
       {movies && <Row title='Top Rated' value='top_rated' movies={movies} />}
-      {movies && <Row title='All movies' value='all_movies' movies={movies} />}
-    </div>
+      {movies && <Row title='Available Movies' value='avail_movies' movies={movies} />}
+    </section>
   }
   
 
