@@ -1,8 +1,4 @@
-const checkIfWatchlistExists = () => {
-    let watchlistMovies = localStorage.getItem('watchlistMovies');
-    if (watchlistMovies == null || watchlistMovies == undefined) {
-        localStorage.setItem('watchlistMovies', JSON.stringify([]));
-    };
-}
-
-export default checkIfWatchlistExists;
+let users = localStorage.getItem('users');
+if (users == null || users == undefined) {
+    localStorage.setItem('users', JSON.stringify([]));
+};
