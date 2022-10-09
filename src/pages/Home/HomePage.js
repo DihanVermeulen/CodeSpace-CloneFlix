@@ -4,7 +4,7 @@ import isSignedIn from '../../utils/utils';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export const Home = () => {
+export const HomePage = () => {
   const navigate = useNavigate();
   const checkIfSignedIn = async () => {
 
