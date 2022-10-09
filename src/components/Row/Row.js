@@ -49,11 +49,8 @@ const Row = (props) => {
                 selectedMovie = movie;
             }
         });
-        console.log('selected movie: ', selectedMovie);
         let watchlistMovies = localStorage.getItem('watchlistMovies');
-        console.log('watch list', watchlistMovies);
         let parsedWatchlistMovies = JSON.parse(watchlistMovies);
-        console.log('parsed watch list', parsedWatchlistMovies);
         parsedWatchlistMovies.push(selectedMovie);
         localStorage.setItem('watchlistMovies', JSON.stringify(parsedWatchlistMovies));
 
