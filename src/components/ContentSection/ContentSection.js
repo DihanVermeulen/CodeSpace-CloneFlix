@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ContentSection.css';
 import Row from '../Row/Row';
 import requests from '../../requests';
+import { WatchTrailer } from '../WatchTrailer/WatchTrailer';
 
 const ContentSection = () => {
 
@@ -27,6 +28,7 @@ const ContentSection = () => {
   }
   else {
     return <section className='content-section'>
+      <WatchTrailer />
       {movies && <Row title='Coming Soon' value='coming_soon' movies={movies} />}
       {movies && <Row title='Top Rated' value='top_rated' movies={movies} />}
       {movies && <Row title='Available Movies' value='avail_movies' movies={movies} />}
