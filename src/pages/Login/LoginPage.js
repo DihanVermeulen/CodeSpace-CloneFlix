@@ -11,18 +11,49 @@ export const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
+    let users = JSON.parse(localStorage.getItem('users'));
 
     const handleSubmit = (event) => {
       event.preventDefault();
+      let usernameRegex = /^[A-Za-z]+$/;
       let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       let passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-      if (email.match(emailRegex) && password.match(passwordRegex)) {
-        console.log('matches')
-        localStorage.setItem('SignedIn', true);
-        navigate('/');
+
+      if (email.match(emailRegex) && password.match(passwordRegex) && username.match(usernameRegex)) {
+        console.log('matches');
+        let emailAlreadyExists = false;
+        users.map(user => {
+          console.log('mapping users');
+          if (user.email === email) {
+            emailAlreadyExists = true;
+          }
+          else {
+            emailAlreadyExists = false;
+          }
+        });
+        console.log(emailAlreadyExists)
+        if (!emailAlreadyExists) {
+          console.log()
+          let userId = users.length;
+          users.push({
+            'id': userId,
+            'username': username,
+            'email': email,
+            'password': password,
+            'watchlist': []
+          });
+          localStorage.setItem('users', JSON.stringify(users));
+          console.log('set users')
+          localStorage.setItem('SignedIn', true);
+          navigate('/');
+          console.log(email);
+          console.log(password);
+        }
+        else {
+          console.log('email already exists');
+          document.querySelector('#emailSignup .login-page_card--error_message').style.display = 'block';
+        }
       }
-      console.log(email);
-      console.log(password);
     }
 
     return (
@@ -30,18 +61,19 @@ export const LoginPage = () => {
         <form onSubmit={handleSubmit}>
           <h1 className='login-page_card--title'>Sign Up</h1>
 
-          <div className='login-page_card--group'>
+          <div id='usernameSignup' className='login-page_card--group'>
             <input className='login-page_card--group_input' required value={username} type='text' onChange={(e) => setUsername(e.target.value)}></input>
             <label className='login-page_card--group_label'>Username</label>
             <div className='login-page_card--message'>Username must only contain letters</div>
           </div>
 
-          <div className='login-page_card--group'>
+          <div id='emailSignup' className='login-page_card--group'>
             <input className='login-page_card--group_input' required value={email} type='email' onChange={(e) => setEmail(e.target.value)}></input>
             <label className='login-page_card--group_label'>Email</label>
+            <p className='login-page_card--error_message'>Email is already registered</p>
           </div>
 
-          <div className='login-page_card--group'>
+          <div id='passwordSignup' className='login-page_card--group'>
             <input className='login-page_card--group_input' required value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
             <label className='login-page_card--group_label'>Password</label>
             <p className='login-page_card--message'>Password must contain uppercase and lowercase letters, as well as a number and special symbol</p>
@@ -101,7 +133,7 @@ export const LoginPage = () => {
 
   return (
     <div className="login-page">
-      
+
       {isLoginPage && <Login />}
       {!isLoginPage && <Signup />}
     </div>
