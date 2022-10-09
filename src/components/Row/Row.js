@@ -4,7 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import add_button from '../../assets/buttons/add_button.svg';
 import play_button from '../../assets/buttons/play_button.svg';
-
+import { getCurrentLoggedInUser } from '../../utils/utils';
 const Row = (props) => {
 
     const [movies, setMovies] = useState([]);
@@ -49,11 +49,16 @@ const Row = (props) => {
                 selectedMovie = movie;
             }
         });
-        let watchlistMovies = localStorage.getItem('watchlistMovies');
-        let parsedWatchlistMovies = JSON.parse(watchlistMovies);
-        parsedWatchlistMovies.push(selectedMovie);
-        localStorage.setItem('watchlistMovies', JSON.stringify(parsedWatchlistMovies));
-
+        console.log('selected movie:', selectedMovie)
+        let users = JSON.parse(localStorage.getItem('users'));
+        let loggedInUser = getCurrentLoggedInUser();
+        users.map(user => {
+            if (loggedInUser.id == user.id) {
+                user.watchlist.push(selectedMovie);
+                localStorage.setItem('users', JSON.stringify(users));
+                console.log('users: ', users);
+            }
+        });
     }
 
     return (
@@ -112,7 +117,7 @@ const Row = (props) => {
                         <article key={key} id={movie.id} className='movie_list__card'>
                             <img className='movie_image' src={movie.image} alt='movie' />
                             <div className='movie_preview'>
-                                <div className='movie_preview-heading'>{movie.name}</div>
+                                <h1 className='movie_preview-heading'>{movie.name}</h1>
                                 <p className='movie_preview-description'>{movie.description}</p>
                                 <div className='movie_preview-toolbar '>
                                     <div onClick={addMovieToWatchList}><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
