@@ -1,0 +1,173 @@
+.content_container-wrapper {
+    height: 300px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+* {
+    color: #fff;
+}
+
+.content_container {
+    display: flex;
+    height: 250px;
+    padding: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.content_container::-webkit-scrollbar {
+    display: none;
+}
+
+.movie_description {
+    width: 200px;
+}
+
+.movie_list__card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px 5px 50px 5px ;
+    height: 250px;
+    cursor: default;
+}
+
+.movie_list__card:hover {
+    transform: scale(1.04);
+    transition: all .3s ease-in-out;
+}
+
+.movie_list__card:hover>.movie_preview {
+    display: flex;
+}
+
+
+.movie_list__card:hover>.movie_image {
+    filter: brightness(.3);
+}
+
+.movie_preview {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding: 5px;
+}
+
+.movie_preview-heading {
+    font-size: large;
+}
+
+.movie_preview-description {
+    font-size: x-small;
+    width: 100%;
+}
+
+.movie_preview-toolbar {
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    height: 40px;
+    width: 90%;
+    bottom: 0;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 1);
+    margin: 10px 10px 10px 10px;
+}
+
+.movie_preview-toolbar p {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.movie_preview-toolbar--button {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 10px;
+} 
+
+.movie_preview-toolbar--button:active {
+    background-color: rgba(200, 200, 200, 0.5);
+}
+
+.movie_preview-toolbar--button:hover {
+    border: 2px solid #555;
+}
+
+.movie_image {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+}
+
+.movie_title {
+    position: static;
+}
+
+.previous-button,
+.next-button {
+    border: none;
+    width: 5vw;
+    height: 240px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0)0%, #000 100%);
+    cursor: pointer;
+    z-index: 9;
+}
+
+.previous-button {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.next-button {
+    right: 0;
+}
+
+.previous-button img,
+.next-button img {
+    width: 20px;
+}
+
+.previous-button:hover,
+.next-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (min-width:600px) {
+    .movie_list__card {
+        height: 250px;
+    }
+
+    .movie_preview-description {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .movie_list__card {
+        height: 250px;
+    }
+
+    .content_container-wrapper {
+        height: 300px;
+    }
+}

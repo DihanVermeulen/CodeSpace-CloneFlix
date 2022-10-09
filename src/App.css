@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: left;
+}
+
+body {
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
+}
+
+.cloneflix-button_primary {
+  cursor: pointer;
+  padding: 5px;
+  border: 0;
+  height: 35px;
+  background: #fff;
+  color: #000;
+  font-weight: bolder;
+  font-size: large;
+  border-radius: 2px;
+  margin: .5rem;
+}
+
+.cloneflix-button_secondary {
+  cursor: pointer;
+  padding: 5px;
+  height: 35px;
+  outline: 1px #fff solid;
+  border: 0;
+  background: rgba(100, 100, 100, 0.3);
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
+  margin: .5rem;
+}
+
+.cloneflix-button_secondary:hover {
+  background: rgba(200, 200, 200, 0.5);
+}
+
+.cloneflix-button_tertiary {
+  cursor: pointer;
+  padding: 5px;
+  height: 35px;
+  border: 0;
+  background: rgba(100, 100, 100, 0.3);
+  background: linear-gradient(to left, rgba(150, 150, 150, 0.3) 50%, rgba(200, 200, 200, 0.5) 50%) right;
+  background-size: 200%;
+  transition: .5s ease-out;
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
+  margin: .5rem;
+}
+
+.cloneflix-button_tertiary:hover {
+  background-position: left;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
