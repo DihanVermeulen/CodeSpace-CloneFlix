@@ -34,9 +34,9 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* width: 100%; */
     margin: 10px 5px 50px 5px ;
     height: 250px;
+    cursor: default;
 }
 
 .movie_list__card:hover {
@@ -54,13 +54,11 @@ h2 {
 }
 
 .movie_preview {
-    display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     width: 100%;
     height: 100%;
-    margin: 5px;
     display: none;
     padding: 5px;
 }
@@ -101,6 +99,10 @@ h2 {
     border: 2px solid transparent;
     border-radius: 10px;
 } 
+
+.movie_preview-toolbar--button:active {
+    background-color: rgba(200, 200, 200, 0.5);
+}
 
 .movie_preview-toolbar--button:hover {
     border: 2px solid #555;
