@@ -4,13 +4,9 @@ import './utils/helpers.css';
 import { HomePage } from './pages/Home/HomePage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LoginPage } from './pages/Login/LoginPage';
-import checkIfWatchlistExists from './runtime';
+import './runtime';
 
 function App() {
-
-  useEffect(() => {
-    checkIfWatchlistExists();
-  })
 
   return (
     <Router>
