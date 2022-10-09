@@ -3,15 +3,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
-
   const [isLoginPage, setIsLoginPage] = useState(true);
+  let users = JSON.parse(localStorage.getItem('users'));
 
   const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
-    let users = JSON.parse(localStorage.getItem('users'));
 
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -45,9 +44,11 @@ export const LoginPage = () => {
           localStorage.setItem('users', JSON.stringify(users));
           console.log('set users')
           localStorage.setItem('SignedIn', true);
+          localStorage.setItem('loggedInAs', JSON.stringify({
+            id: userId,
+            username: username
+          }));
           navigate('/');
-          console.log(email);
-          console.log(password);
         }
         else {
           console.log('email already exists');
@@ -93,15 +94,28 @@ export const LoginPage = () => {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      let passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-      if (email.match(emailRegex) && password.match(passwordRegex)) {
-        console.log('matches')
-        localStorage.setItem('SignedIn', true);
-        navigate('/');
-      }
-      console.log(email);
-      console.log(password);
+      let isEmailValid = false;
+      let isPasswordValid = false;
+      users.map(user => {
+        if (email == user.email) {
+          console.log('emails match');
+          isEmailValid = true;
+        }
+        if (password == user.password) {
+          console.log('passwords match');
+          isPasswordValid = true;
+        }
+        if (isEmailValid && isPasswordValid) {
+          console.log('both email and password is valid');
+          console.log(user.username)
+          localStorage.setItem('loggedInAs', JSON.stringify({
+            id: user.id,
+            username: user.username
+          }));
+          localStorage.setItem('SignedIn', true);
+          navigate('/');
+        }
+      });
     }
 
     return (
