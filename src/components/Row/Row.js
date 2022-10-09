@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import add_button from '../../assets/buttons/add_button.svg';
 import play_button from '../../assets/buttons/play_button.svg';
 import { getCurrentLoggedInUser } from '../../utils/utils';
+import { WatchTrailer } from '../WatchTrailer/WatchTrailer';
 const Row = (props) => {
 
     const [movies, setMovies] = useState([]);
@@ -60,6 +61,10 @@ const Row = (props) => {
             }
         });
     }
+
+    const watchTrailer = () => {
+        document.querySelector('#watchtrailer').style.display = 'block';
+    };
 
     return (
         <div className='row'>
@@ -122,13 +127,14 @@ const Row = (props) => {
                                 <div className='movie_preview-toolbar '>
                                     <div onClick={addMovieToWatchList}><img className='movie_preview-toolbar--button' src={add_button} alt='add'></img></div>
                                     <div >
-                                        <img className='movie_preview-toolbar--button' src={play_button} alt='play'></img>
+                                        <img onClick={watchTrailer} className='movie_preview-toolbar--button' src={play_button} alt='play'></img>
                                     </div>
                                     <p>Rating: {movie.rating}</p>
                                 </div>
                             </div>
                         </article>
                     ))}
+
                 </Carousel>
             </div>
         </div>
