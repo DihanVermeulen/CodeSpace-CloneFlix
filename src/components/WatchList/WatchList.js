@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './WatchList.css';
-import {getCurrentLoggedInUser} from '../../utils/utils';
+import { getCurrentLoggedInUser } from '../../utils/utils';
+import play_button from '../../assets/buttons/play_button.svg';
 const WatchList = (props) => {
   const [isOpen, setisOpen] = useState(false);
 
@@ -25,15 +26,15 @@ export const Drawer = (props) => {
   let users = JSON.parse(localStorage.getItem('users'));
   let loggedInUser = getCurrentLoggedInUser();
   console.log('logged in user', loggedInUser);
-  
+
   // SETS THE WATCH LIST MOVIES EQUAL TO THE CURRENT LOGGED IN USER'S WATCH LIST
   useEffect(() => {
     let watchlistMovies = [];
     users.map(user => {
-      if(loggedInUser.id == user.id) {
+      if (loggedInUser.id == user.id) {
         watchlistMovies = user.watchlist;
       }
-    })
+    });
     setMovies(watchlistMovies);
     console.log('watch list movies:', watchlistMovies);
   }, [])
@@ -42,9 +43,27 @@ export const Drawer = (props) => {
     <aside id='watchlist'>
       <h1 className='watchlist-header'>My List</h1>
       {props.children}
-      {movies.map((movie, key) => {
-        return <div key={key}>{movie.id}</div>
-      })}
+      <section className='watchlist-content_section'>
+
+        {movies.map((movie, key) => {
+          return (
+
+            <div className='watchlist-movie_card ' key={key}>
+              <img className='watchlist-movie_card-image' src={movie.image}></img>
+              <div className='watchlist-movie_preview'>
+                <h1 className='watchlist-movie_preview-title'>{movie.name}</h1>
+                <p className='watchlist-movie_preview-description'>{movie.description}</p>
+                <div className='watchlist-movie_preview-toolbar'>
+                  <div >
+                    <img className='movie_preview-toolbar--button' src={play_button} alt='play'></img>
+                  </div>
+                  <p>Rating: {movie.rating}</p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </section>
     </aside>
   )
 }
