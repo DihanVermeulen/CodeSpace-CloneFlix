@@ -24,11 +24,8 @@ export const Drawer = (props) => {
 
   useEffect(() => {
     let watchlistMovies = JSON.parse(localStorage.getItem('watchlistMovies'));
-    console.trace(watchlistMovies);
     setMovies(watchlistMovies);
-  }, [movies])
-
-  console.log(movies)
+  }, [])
 
   return (
     <aside id='watchlist'>
