@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import './utils/helpers.css';
-import { Home } from './pages/Home/Home';
+import { HomePage } from './pages/Home/HomePage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Login } from './pages/Login/Login';
+import { LoginPage } from './pages/Login/LoginPage';
 import checkIfWatchlistExists from './runtime';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
+          <Route exact path='/' element={<HomePage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Routes>
 
       </div>
