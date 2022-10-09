@@ -21,6 +21,7 @@ export const Dropdown = () => {
     console.log('Log Out');
     localStorage.setItem('SignedIn', false);
     setsignedIn(false);
+    localStorage.removeItem('loggedInAs');
   }
 
   const DropdownItem = (props) => {
