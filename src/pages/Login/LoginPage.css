@@ -6,12 +6,14 @@
     width: 100vw;
     height: 100vh;
     background-image: url('../../assets/images/login_bg.jpg');
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .login-page_card {
     background: #000;
     width: 60vw;
-    height: 60vh;
+    height: 80vh;
     border-radius: 10px;
     padding: 5% 5% 5%;
 }
@@ -27,6 +29,8 @@
     position: relative;
     z-index: 10;
     display: flex;
+    flex-direction: column;
+    width: 90%;
 }
 
 .login-page_card--group_input {
@@ -47,6 +51,18 @@
 .login-page_card--group_input:focus+.login-page_card--group_label {
     top: 15px;
     font-size: 0.7rem;
+}
+
+.login-page_card--group_input:focus ~ .login-page_card--message {
+    display: block;
+    opacity: 1;
+    transition: 1s all ease;
+}
+
+.login-page_card--group_input:focus .login-page_card--group p {
+    display: block;
+    opacity: 1;
+    transition: 1s all ease; 
 }
 
 .login-page_card--group_label {
@@ -71,9 +87,37 @@
     cursor: pointer;
 }
 
+.login-page_card--message {
+    display: none;
+    font-size: small;
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.login-page_card--error_message {
+    display: none;
+    font-size: small;
+    color: red;
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.login-page_card--help {
+    display: flex;
+    width: 100%;
+    color: grey;
+    font-size: small;
+    justify-content: space-between;
+    text-decoration: underline;
+}
+
+.login-page_card--help a {
+    cursor: pointer;
+}
+
 @media screen and (min-width:600px) {
     .login-page_card {
         width: 40vw;
-        height: 60vh;
+        height: 70vh;
     }
 }
