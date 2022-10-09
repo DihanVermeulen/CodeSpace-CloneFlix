@@ -10,8 +10,8 @@ export const WatchTrailer = () => {
         <article id='watchtrailer'>
             <div onClick={closeTrailer} className='watchtrailer-close_button'>X</div>
             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1"
-                title="YouTube video player" frameborder="0" allow="autoplay"
-                allowfullscreen
+                title="YouTube video player" frameBorder="0" allow="autoplay"
+                allowFullScreen
             >
             </iframe>
         </article>
