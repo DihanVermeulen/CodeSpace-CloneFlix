@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Dropdown.css';
-import isSignedIn from '../../utils/utils'
+import {isSignedIn} from '../../utils/utils'
 import WatchList from '../WatchList/WatchList';
 
 export const Dropdown = () => {
