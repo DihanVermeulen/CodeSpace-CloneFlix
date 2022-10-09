@@ -37,7 +37,11 @@ export const Drawer = (props) => {
     });
     setMovies(watchlistMovies);
     console.log('watch list movies:', watchlistMovies);
-  }, [])
+  }, []);
+
+  const watchTrailer = () => {
+    document.querySelector('#watchtrailer').style.display = 'block';
+  };
 
   return (
     <aside id='watchlist'>
@@ -55,7 +59,7 @@ export const Drawer = (props) => {
                 <p className='watchlist-movie_preview-description'>{movie.description}</p>
                 <div className='watchlist-movie_preview-toolbar'>
                   <div >
-                    <img className='movie_preview-toolbar--button' src={play_button} alt='play'></img>
+                    <img onClick={watchTrailer} className='movie_preview-toolbar--button' src={play_button} alt='play'></img>
                   </div>
                   <p>Rating: {movie.rating}</p>
                 </div>
