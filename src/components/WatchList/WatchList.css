@@ -90,7 +90,7 @@
     display: flex;
     position: absolute;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-radius: 20px 20px 0 0;
     height: 40px;
     width: 90%;
