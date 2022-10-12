@@ -25,6 +25,46 @@ const Row = (props) => {
                 })
                 setMovies(topRatedMovies);
                 break;
+            case 'horror_movies':
+                let horrorMovies = props.movies.filter(movie => {
+                    for (let genre of movie.genres) {
+                        if (genre.name === 'Horror') {
+                            return movie;
+                        }
+                    }
+                });
+                setMovies(horrorMovies);
+                break;
+            case 'action_movies':
+                let actionMovies = props.movies.filter(movie => {
+                    for (let genre of movie.genres) {
+                        if (genre.name === 'Action') {
+                            return movie;
+                        }
+                    }
+                });
+                setMovies(actionMovies);
+                break;
+            case 'drama_movies':
+                let dramaMovies = props.movies.filter(movie => {
+                    for (let genre of movie.genres) {
+                        if (genre.name === 'Drama') {
+                            return movie;
+                        }
+                    }
+                });
+                setMovies(dramaMovies);
+                break;
+            case 'romance_movies':
+                let romanceMovies = props.movies.filter(movie => {
+                    for (let genre of movie.genres) {
+                        if (genre.name === 'Romance') {
+                            return movie;
+                        }
+                    }
+                });
+                setMovies(romanceMovies);
+                break;
             default:
                 let availableMovies = props.movies.filter(movie => {
                     return movie.is_coming_soon !== 1

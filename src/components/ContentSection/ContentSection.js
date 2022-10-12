@@ -32,6 +32,10 @@ const ContentSection = () => {
       {movies && <Row title='Coming Soon' value='coming_soon' movies={movies} />}
       {movies && <Row title='Top Rated' value='top_rated' movies={movies} />}
       {movies && <Row title='Available Movies' value='avail_movies' movies={movies} />}
+      {movies && <Row title='Horror' value='horror_movies' movies={movies} />}
+      {movies && <Row title='Action' value='action_movies' movies={movies} />}
+      {movies && <Row title='Romance' value='romance_movies' movies={movies} />}
+      {movies && <Row title='Drama' value='drama_movies' movies={movies} />}
     </section>
   }
   
