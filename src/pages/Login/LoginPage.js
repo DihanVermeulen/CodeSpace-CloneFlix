@@ -1,6 +1,7 @@
 import './LoginPage.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import back_button from '../../assets/buttons/back_button.svg';
 
 export const LoginPage = () => {
   const [isLoginPage, setIsLoginPage] = useState(true);
@@ -62,10 +63,11 @@ export const LoginPage = () => {
     return (
       <section className='login-page_card'>
         <form onSubmit={handleSubmit}>
+          <img onClick={() => setIsLoginPage(!isLoginPage)} className='login-page_card--button' src={back_button}></img>
           <h1 className='login-page_card--title'>Sign Up</h1>
 
           <div id='usernameSignup' className='login-page_card--group'>
-            <input className='login-page_card--group_input' required value={username} type='text' onChange={(e) => setUsername(e.target.value)}></input>
+            <input autoFocus className='login-page_card--group_input' required value={username} type='text' onChange={(e) => setUsername(e.target.value)}></input>
             <label className='login-page_card--group_label'>Username</label>
             <div className='login-page_card--message'>Username must only contain letters</div>
           </div>
@@ -133,7 +135,7 @@ export const LoginPage = () => {
           <h1 className='login-page_card--title'>Sign in</h1>
 
           <div id='emailSignin' className='login-page_card--group'>
-            <input className='login-page_card--group_input' required value={email} type='email' onChange={(e) => setEmail(e.target.value)}></input>
+            <input autoFocus className='login-page_card--group_input' required value={email} type='email' onChange={(e) => setEmail(e.target.value)}></input>
             <label className='login-page_card--group_label'>Email</label>
             <p className='login-page_card--error_message'>Email does not exist</p>
           </div>
