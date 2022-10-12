@@ -13,13 +13,15 @@
 }
 
 .dropdown-item {
+    font-size: 18px;
+    font-weight: normal;
     background-color: #fff;
     padding: 5px;
-    display: inline;
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 80px;
     margin: 5px;
     color: #000;
     cursor: pointer;
