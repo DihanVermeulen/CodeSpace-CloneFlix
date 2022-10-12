@@ -4,7 +4,7 @@ export const WatchTrailer = () => {
     const closeTrailer = () => {
         document.querySelector('#watchtrailer iframe').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
         document.querySelector('#watchtrailer').style.display = 'none';
-    }
+    };
 
     return (
         <article id='watchtrailer'>
