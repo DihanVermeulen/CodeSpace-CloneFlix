@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ContentSection.css';
 import Row from '../Row/Row';
-import requests from '../../requests';
+import requests from '../../services/requests';
 import { WatchTrailer } from '../WatchTrailer/WatchTrailer';
 
 const ContentSection = () => {
@@ -10,7 +10,7 @@ const ContentSection = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await fetch(requests.fetchSchalkMovies);
+      const request = await fetch(requests.fetchAllMovies);
       const { data } = await request.json();
       setMovies(data);
 

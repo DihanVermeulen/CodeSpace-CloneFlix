@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { DropdownButton } from '../Dropdown/DropdownButton/DropdownButton';
 import WatchList from '../WatchList/WatchList';
-import requests from '../../requests';
+import requests from '../../services/requests';
 import { getCurrentLoggedInUser } from '../../utils/utils';
 
 const Header = () => {
@@ -44,7 +44,7 @@ const Header = () => {
         }
 
         async function fetchData() {
-            await fetch(requests.fetchSchalkMovies, {
+            await fetch(requests.fetchAllMovies, {
                 method: 'GET',
             }).then((response) => response.json()).then(
                 (responseJSON) => {
