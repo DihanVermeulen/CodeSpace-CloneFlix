@@ -11,7 +11,7 @@
 }
 
 .login-page_card {
-    background: #000;
+    background: rgba(0, 0, 0, 0.8);
     width: 60vw;
     height: 80vh;
     border-radius: 10px;
@@ -111,6 +111,12 @@
 }
 
 .login-page_card--help a {
+    cursor: pointer;
+}
+
+.login-page_card--button {
+    height: 40px;
+    width: 40px;
     cursor: pointer;
 }
 

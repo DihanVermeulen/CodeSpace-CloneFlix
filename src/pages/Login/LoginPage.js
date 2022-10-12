@@ -1,6 +1,7 @@
 import './LoginPage.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import back_button from '../../assets/buttons/back_button.svg';
 
 export const LoginPage = () => {
   const [isLoginPage, setIsLoginPage] = useState(true);
@@ -62,10 +63,11 @@ export const LoginPage = () => {
     return (
       <section className='login-page_card'>
         <form onSubmit={handleSubmit}>
+          <img onClick={() => setIsLoginPage(!isLoginPage)} className='login-page_card--button' src={back_button}></img>
           <h1 className='login-page_card--title'>Sign Up</h1>
 
           <div id='usernameSignup' className='login-page_card--group'>
-            <input className='login-page_card--group_input' required value={username} type='text' onChange={(e) => setUsername(e.target.value)}></input>
+            <input autoFocus className='login-page_card--group_input' required value={username} type='text' onChange={(e) => setUsername(e.target.value)}></input>
             <label className='login-page_card--group_label'>Username</label>
             <div className='login-page_card--message'>Username must only contain letters</div>
           </div>
@@ -79,7 +81,7 @@ export const LoginPage = () => {
           <div id='passwordSignup' className='login-page_card--group'>
             <input className='login-page_card--group_input' required value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
             <label className='login-page_card--group_label'>Password</label>
-            <p className='login-page_card--message'>Password must contain uppercase and lowercase letters, as well as a number and special symbol</p>
+            <p className='login-page_card--message'>Password must contain a number and special symbol</p>
           </div>
 
           <button className='login-page_card--group_signin' type='submit'>Sign Up</button>
@@ -95,14 +97,15 @@ export const LoginPage = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    // CHECKS IF EMAIL EXISTS AND IF IT DOES, THEN IF THE PASSWORD IS CORRECT AND DIRECTS USER TO THE LANDING PAGE
     const handleSubmit = (event) => {
       event.preventDefault();
-      users.map(user => {
-        if (email == user.email) {
+
+      // LOOPS THE USERS TO CHECK IF THE PASSWORD MATCHES WITH CORRESPONDING EMAIL, THEN BREAKS LOOP
+      for (let user of users) {
+        if (email === user.email) {
           document.querySelector('#emailSignin .login-page_card--error_message').style.display = 'none';
           console.log('emails match');
-          if (password == user.password) {
+          if (password === user.password) {
             document.querySelector('#passwordSignin .login-page_card--error_message').style.display = 'none';
             console.log('passwords match');
             console.log('both email and password is valid');
@@ -117,13 +120,13 @@ export const LoginPage = () => {
           else {
             document.querySelector('#passwordSignin .login-page_card--error_message').style.display = 'block';
           }
+          break;
         }
         else {
           document.querySelector('#emailSignin .login-page_card--error_message').style.display = 'block';
+          console.log('email does not match');
         }
-
-
-      });
+      };
     }
 
     return (
@@ -132,7 +135,7 @@ export const LoginPage = () => {
           <h1 className='login-page_card--title'>Sign in</h1>
 
           <div id='emailSignin' className='login-page_card--group'>
-            <input className='login-page_card--group_input' required value={email} type='email' onChange={(e) => setEmail(e.target.value)}></input>
+            <input autoFocus className='login-page_card--group_input' required value={email} type='email' onChange={(e) => setEmail(e.target.value)}></input>
             <label className='login-page_card--group_label'>Email</label>
             <p className='login-page_card--error_message'>Email does not exist</p>
           </div>

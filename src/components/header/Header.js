@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';
 import { DropdownButton } from '../Dropdown/DropdownButton/DropdownButton';
 import WatchList from '../WatchList/WatchList';
-import requests from '../../requests';
+import requests from '../../services/requests';
 import { getCurrentLoggedInUser } from '../../utils/utils';
 
 const Header = () => {
@@ -44,7 +44,7 @@ const Header = () => {
         }
 
         async function fetchData() {
-            await fetch(requests.fetchSchalkMovies, {
+            await fetch(requests.fetchAllMovies, {
                 method: 'GET',
             }).then((response) => response.json()).then(
                 (responseJSON) => {
@@ -56,6 +56,9 @@ const Header = () => {
         fetchData();
     }, []);
 
+    const watchTrailer = () => {
+        document.querySelector('#watchtrailer').style.display = 'block';
+    };
     const addMovieToWatchList = (e) => {
         let allMovies = movies.data;
         console.log(allMovies)
@@ -106,7 +109,7 @@ const Header = () => {
                 <div className='main-header--bottom_content'>
                     <h2 className='main-header--cover_title'>{movieHeader.name}</h2>
                     <div id={movieHeader.id}>
-                        <button className='cloneflix-button_primary'>See trailer</button>
+                        <button onClick={watchTrailer} className='cloneflix-button_primary'>See trailer</button>
                         <button onClick={addMovieToWatchList} className='cloneflix-button_secondary'>+ Watch List</button>
                     </div>
                     <div>
