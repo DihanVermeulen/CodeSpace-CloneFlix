@@ -1,6 +1,6 @@
 import Header from '../../components/header/Header';
 import ContentSection from '../../components/ContentSection/ContentSection';
-import {isSignedIn} from '../../utils/utils';
+import { isSignedIn } from '../../utils/utils';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -23,8 +23,8 @@ export const HomePage = () => {
 
   return (
     <div className="home-page">
-      <Header />
-      <ContentSection />
+        <Header />
+        <ContentSection />
     </div>
   )
 }
