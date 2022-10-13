@@ -102,6 +102,7 @@ const Row = (props) => {
         });
     }
 
+    // SHOWS WATCHTRAILER COMPONENT
     const watchTrailer = () => {
         document.querySelector('#watchtrailer').style.display = 'block';
     };

@@ -56,9 +56,12 @@ const Header = () => {
         fetchData();
     }, []);
 
+    // OPENS Watchtrailer COMPONENT
     const watchTrailer = () => {
         document.querySelector('#watchtrailer').style.display = 'block';
     };
+
+    // ADDS A MOVIE TO THE WATCHLIST
     const addMovieToWatchList = (e) => {
         let allMovies = movies.data;
         console.log(allMovies)
