@@ -4,7 +4,8 @@ A web application as part of the CodeSpace curriculum
 
 ## Usage
 
-This Netflix clone has some basic functionality, eg. sorting movies in order, displaying upcoming movies, being able to add movies to your watch list, etc.
+This Netflix clone has some basic functionality, eg. displaying movies that contains different genres, adding movies to your watch list, etc. 
+It only makes use of local storage as to keep it as only a frontend application.
 
 ## Disclaimer
 
