@@ -8,6 +8,7 @@ const ContentSection = () => {
 
   const [movies, setMovies] = useState();
 
+  // FETCHES ALL MOVIES FROM EXTERNAL API
   useEffect(() => {
     async function fetchData() {
       const request = await fetch(requests.fetchAllMovies);

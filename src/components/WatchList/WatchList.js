@@ -35,7 +35,6 @@ export const Drawer = (props) => {
     users.map(user => {
       if (loggedInUser.id == user.id) {
         watchlistMovies = user.watchlist;
-        // return user.watchlist
       }
     });
 
@@ -43,10 +42,12 @@ export const Drawer = (props) => {
     console.log('watch list movies:', watchlistMovies);
   }, []);
 
+  // OPENS Watchtrailer COMPONENT
   const watchTrailer = () => {
     document.querySelector('#watchtrailer').style.display = 'block';
   };
 
+  // REMOVES A MOVIE FROM THE WATCHLIST
   const removeMovieFromWatchlist = (e) => {
     let movieId = e.target.parentElement.parentElement.parentElement.parentElement.id;
     let allMovies = movies;

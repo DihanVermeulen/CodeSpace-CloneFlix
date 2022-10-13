@@ -1,6 +1,7 @@
 import './WatchTrailer.css';
 export const WatchTrailer = () => {
 
+    // STOPS VIDEO AND CLOSES COMPONENT
     const closeTrailer = () => {
         document.querySelector('#watchtrailer iframe').contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
         document.querySelector('#watchtrailer').style.display = 'none';

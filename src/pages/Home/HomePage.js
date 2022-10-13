@@ -6,8 +6,10 @@ import { useEffect } from 'react';
 
 export const HomePage = () => {
   const navigate = useNavigate();
-  const checkIfSignedIn = async () => {
 
+  useEffect(() => {
+      // CHECKS IF USER IS SIGNED IN, AND IF NOT THEN USER IS REDIRECTED TO LOGIN
+  const checkIfSignedIn = async () => {
     if (!isSignedIn()) {
       navigate('/login');
       console.log('not logged in')
@@ -16,8 +18,6 @@ export const HomePage = () => {
       console.log('logged in')
     }
   }
-
-  useEffect(() => {
     checkIfSignedIn()
   })
 
